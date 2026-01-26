@@ -14,7 +14,6 @@ body {
   overflow: hidden;
 }
 
-/* Space background */
 .background {
   position: fixed;
   inset: 0;
@@ -38,7 +37,6 @@ body {
   flex-direction: column;
 }
 
-/* Header */
 .header {
   display: flex;
   justify-content: space-between;
@@ -50,7 +48,6 @@ body {
   font-weight: 600;
 }
 
-/* Cover */
 .cover {
   margin: 35px auto;
   width: 200px;
@@ -60,7 +57,6 @@ body {
   box-shadow: 0 0 30px rgba(0, 170, 255, 0.5);
 }
 
-
 .cover img {
   width: 100%;
   height: 100%;
@@ -68,7 +64,6 @@ body {
 
   animation: rotate 12s linear infinite;
 }
-
 
 @keyframes rotate {
   from {
@@ -79,21 +74,23 @@ body {
   }
 }
 
-.icon{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    transition: all 0.3s ease-in-out;
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease-in-out;
 }
-.icon i{
-    font-size: 20px;
+.icon i {
+  font-size: 20px;
 }
 
-.icon .fa-heart:hover{
-    color: #bb0000;
-    cursor: pointer;
+/* .icon .fa-heart:hover {
+  color: #bb0000;
+  cursor: pointer;
+} */
+.icon h1 {
+  font-size: 20px;
 }
-/* Progress */
 .progress {
   margin-top: 20px;
 }
@@ -111,7 +108,27 @@ body {
   margin-bottom: 10px;
 }
 
-/* Controls */
+.slider{
+  width: 700px;
+  max-width: 100%;
+  height: 6px;
+  background: #bdbdbd;
+  border-radius: 999px;
+  position: relative;
+}
+
+.thumb{
+  width: 14px;
+  height: 14px;
+  background: red;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 30px;
+  transform: translate(-50%, -50%);
+}
+
+
 .controls {
   margin-top: auto;
   display: flex;
