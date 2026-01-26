@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: black;
+  overflow: hidden;
+}
+
+/* Space background */
+.background {
+  position: fixed;
+  inset: 0;
+  background: url("https://png.pngtree.com/thumb_back/fh260/background/20221224/pngtree-blue-musical-notes-background-image_1530362.jpg");
+  background-position: center;
+  background-size: cover;
+  background-size: cover;
+  filter: blur(3px) brightness(0.9);
+  z-index: -1;
+}
+
+.player {
+  width: 320px;
+  height: 560px;
+  background: rgba(0, 0, 0, 0.65);
+  border-radius: 28px;
+  padding: 30px;
+  color: white;
+  box-shadow: 10px 10px 100px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h2 {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* Cover */
+.cover {
+  margin: 35px auto;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0, 170, 255, 0.5);
+}
+
+
+.cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  animation: rotate 12s linear infinite;
+}
+
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.icon{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease-in-out;
+}
+.icon i{
+    font-size: 20px;
+}
+
+.icon .fa-heart:hover{
+    color: #bb0000;
+    cursor: pointer;
+}
+/* Progress */
+.progress {
+  margin-top: 20px;
+}
+
+.progress input {
+  width: 100%;
+  accent-color: #1e90ff;
+}
+
+.time {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+/* Controls */
+.controls {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 10px;
+}
+
+.controls i {
+  font-size: 18px;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.play {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgb(255, 255, 255);
+  border: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.play i {
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+}
