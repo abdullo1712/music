@@ -11,32 +11,54 @@
   </head>
   <body>
     <div class="background"></div>
-
+    <audio src="./music/Boyvachcha.mp3" controls></audio>
     <div class="player">
+      <div class="modal">
+        <div class="tugma">
+          <i id="chiqish" class="fa-regular fa-circle-xmark"></i>
+        </div>
+        <h1>Ro'yxat</h1>
+        <div>
+          <ol>
+            <li>MINOR-UZMIR-MAJOR - 2012</li>
+            <li>Bojalar-Boyvachcha</li>
+            <li>Sarbon guruhi -Gulsan go'zalsan</li>
+            <li>Xudoyorxon Qalandarzoda - Koʻrdim men lola koʻrdim</li>
+            <li>O`lmas Olloberganov - Kutaman</li>
+            <li>Sherali Juraev - Oy yuzingga</li>
+            <li>Samandar Hamroqulov - Sevgi fazosi</li>
+            <li>Xurshid Rasulov - Yoshlik</li>
+            <li>MATRANG - Медуза</li>
+            <li>Султан-Ураган - На дискотеку!</li>
+          </ol>
+        </div>
+      </div>
       <header class="header">
-        <h2>Yoshlik</h2>
-        <i class="fa-solid fa-bars"></i>
+        <h2>Treklar</h2>
+        <i id="modal_tugma" class="fa-solid fa-bars"></i>
       </header>
 
       <div class="cover">
-        <img
-          src="https://yt3.googleusercontent.com/ytc/AIdro_ke-sik78y_gT1MFM7byH0C7bNFuLGhst3ZT_kkarfJnw=s900-c-k-c0x00ffffff-no-rj"
-          alt="cover"
-        />
+        <img class="mainImg" src="./img/Boyvachcha.jpg" alt="cover" />
       </div>
 
       <div class="icon">
         <i class="fa-solid fa-plus"></i>
-        <h1>Xurshid Rasulov</h1>
+        <div class="ism">
+          <h1>Xurshid Rasulov</h1>
+          <p>Yoshlik</p>
+        </div>
+
         <i class="fa-solid fa-heart"></i>
       </div>
+      <audio src="./music/Boyvachcha.mp3"></audio>
       <div class="progress">
         <div class="time">
           <span>00:30</span>
           <span>03:08</span>
         </div>
         <div class="slider">
-          <div class="thumb"></div>
+          <div class="nuqta"></div>
         </div>
       </div>
       <div class="controls">
@@ -44,6 +66,7 @@
         <i class="fa-solid fa-backward"></i>
         <button class="play">
           <i class="fa-solid fa-play"></i>
+          <i class="fa-solid fa-pause"></i>
         </button>
         <i class="fa-solid fa-forward"></i>
         <i class="fa-solid fa-repeat"></i>
