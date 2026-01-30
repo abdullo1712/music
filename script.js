@@ -3,8 +3,10 @@ const modal_tugma = document.querySelector("#modal_tugma");
 const modal = document.querySelector(".modal");
 const chiqish = document.querySelector("#chiqish");
 const playBtn = document.querySelector(".play");
-const audio=document.querySelector("audio")
-const mainImg=document.querySelector(".mainImg")
+const audio = document.querySelector("audio");
+const mainImg = document.querySelector(".mainImg");
+const nextBtn = document.querySelector("#nextBtn");
+const prevBtn = document.querySelector("#prevBtn");
 
 let data = [
   {
@@ -59,10 +61,12 @@ let data = [
   },
 ];
 
-audio.src=`./music/${data[1].id}.mp3`
-mainImg.src=`./img/${data[1].id}.jpg`
-
-
+let musicIndex = 0;
+const writeMusic = (index) => {
+  audio.src = `./music/${data[index].id}.mp3`;
+  mainImg.src = `./img/${data[index].id}.jpg`;
+};
+writeMusic(musicIndex);
 
 // modal tugma
 modal_tugma.addEventListener("click", () => {
@@ -71,7 +75,6 @@ modal_tugma.addEventListener("click", () => {
 chiqish.addEventListener("click", () => {
   modal.classList.remove("active");
 });
-// modal tugma
 
 // like
 if (localStorage.getItem("likes") == "true") {
@@ -83,10 +86,39 @@ like.addEventListener("click", () => {
 
   localStorage.setItem("likes", like.classList.contains("active"));
 });
-// like
 
 // play
 playBtn.addEventListener("click", () => {
-  playBtn.classList.toggle("active");
+    if (audio.paused) {
+    audio.play();
+    playBtn.classList.add("active");
+  } else {
+    audio.pause();
+    playBtn.classList.remove("active");
+  }
+  
 });
-// play
+
+nextBtn.addEventListener("click", () => {
+  if (data.length - 1 > musicIndex) {
+    musicIndex++;
+    writeMusic(musicIndex);
+  } else {
+    musicIndex=0
+    writeMusic(musicIndex);
+
+  }
+});
+
+prevBtn.addEventListener("click", () => {
+  if (musicIndex>0) {
+    musicIndex--;
+    writeMusic(musicIndex);
+  }else{
+    musicIndex=data.length-1
+    writeMusic(musicIndex);
+
+  }
+
+  
+});

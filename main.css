@@ -253,7 +253,6 @@ body {
   justify-content: center;
 }
 
-
 .play .fa-pause {
   display: none;
 }
@@ -266,6 +265,56 @@ body {
   display: inline-block;
 }
 
+@media (max-width: 480px) {
 
+  body {
+    align-items: flex-start;
+    justify-content: center;
+    height: auto;
+    padding: 20px 0;
+  }
 
+  .player {
+    /* width: 92vw;          ekran bo‘yicha */
+    max-width: 480px;     /* katta bo‘lib ketmasin */
+    /* height: auto; */
+    /* min-height: 560px; */
+    /* padding: 20px; */
+    /* border-radius: 22px; */
+  }
 
+  .cover {
+    width: 160px;
+    height: 160px;
+    margin: 25px auto;
+  }
+
+  .icon .ism h1 {
+    font-size: 16px;
+  }
+
+  .controls {
+    padding: 15px 5px;
+  }
+
+  .controls i {
+    font-size: 16px;
+  }
+
+  .play {
+    width: 52px;
+    height: 52px;
+    font-size: 18px;
+  }
+
+  .modal {
+    width: 100%;
+    height: 70%;
+    left: 0;
+    bottom: 0;
+    top: auto;
+    border-radius: 22px 22px 0 0;
+    padding: 20px;
+  }
+
+}
