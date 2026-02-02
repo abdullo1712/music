@@ -7,6 +7,11 @@ const audio = document.querySelector("audio");
 const mainImg = document.querySelector(".mainImg");
 const nextBtn = document.querySelector("#nextBtn");
 const prevBtn = document.querySelector("#prevBtn");
+const cover = document.querySelector(".cover");
+const startTime = document.querySelector(".startTime");
+const allTime = document.querySelector(".allTime");
+const slider = document.querySelector(".slider");
+const nuqta = document.querySelector(".nuqta");
 
 let data = [
   {
@@ -61,7 +66,7 @@ let data = [
   },
 ];
 
-let musicIndex = 0;
+let musicIndex = 7;
 const writeMusic = (index) => {
   audio.src = `./music/${data[index].id}.mp3`;
   mainImg.src = `./img/${data[index].id}.jpg`;
@@ -89,36 +94,91 @@ like.addEventListener("click", () => {
 
 // play
 playBtn.addEventListener("click", () => {
-    if (audio.paused) {
-    audio.play();
-    playBtn.classList.add("active");
+  if (audio.paused) {
+    playMusic();
   } else {
-    audio.pause();
-    playBtn.classList.remove("active");
+    puseMusic();
   }
-  
 });
 
 nextBtn.addEventListener("click", () => {
+  nextMusic();
+  playMusic();
+});
+
+prevBtn.addEventListener("click", () => {
+  if (musicIndex > 0) {
+    musicIndex--;
+    writeMusic(musicIndex);
+  } else {
+    musicIndex = data.length - 1;
+    writeMusic(musicIndex);
+  }
+  playMusic();
+});
+
+const nextMusic = () => {
   if (data.length - 1 > musicIndex) {
     musicIndex++;
     writeMusic(musicIndex);
   } else {
-    musicIndex=0
+    musicIndex = 0;
     writeMusic(musicIndex);
-
   }
+  playMusic();
+
+};
+
+const playMusic = () => {
+  audio.play();
+  playBtn.classList.add("active");
+  cover.classList.add("active");
+};
+
+const puseMusic = () => {
+  audio.pause();
+  playBtn.classList.remove("active");
+  cover.classList.remove("active");
+};
+
+audio.addEventListener("timeupdate", (e) => {
+  let currentTime = e.target.currentTime;
+  let duration = e.target.duration;
+  let result = (currentTime * 100) / duration;
+
+  nuqta.style = `width:${result}%`;
+
+  allTime.textContent = timeFormat(duration);
+  startTime.textContent = timeFormat(currentTime);
 });
 
-prevBtn.addEventListener("click", () => {
-  if (musicIndex>0) {
-    musicIndex--;
-    writeMusic(musicIndex);
-  }else{
-    musicIndex=data.length-1
-    writeMusic(musicIndex);
-
+const timeFormat = (time) => {
+  if (isNaN(time)) {
+    return `00:00`;
+  } else {
+    let min =
+      Math.floor(time / 60) >= 10
+        ? Math.floor(time / 60)
+        : "0" + Math.floor(time / 60);
+    let sec =
+      Math.floor(time % 60) >= 10
+        ? Math.floor(time % 60)
+        : "0" + Math.floor(time % 60);
+    return `${min}:${sec}`;
   }
+};
 
+slider.addEventListener("click", (e) => {
+  let clientWidth = e.currentTarget.clientWidth;
+  let offsetX = e.offsetX;
+
+  let time = (audio.duration * offsetX) / clientWidth;
+  audio.currentTime = time;
   
 });
+
+
+audio.addEventListener("ended",()=>{
+  nextMusic();
+
+})
