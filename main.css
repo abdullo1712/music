@@ -11,7 +11,7 @@ body {
   align-items: center;
   justify-content: center;
   background: black;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .background {
@@ -63,11 +63,10 @@ body {
   height: 100%;
   object-fit: cover;
   animation: rotate 12s linear infinite;
-  animation-play-state:paused;
+  animation-play-state: paused;
 }
-.cover.active img{
-animation-play-state:running;
-
+.cover.active img {
+  animation-play-state: running;
 }
 @keyframes rotate {
   from {
@@ -139,7 +138,7 @@ animation-play-state:running;
   position: relative;
 }
 
-.nuqta::after{
+.nuqta::after {
   content: "";
   width: 10px;
   height: 10px;
@@ -149,7 +148,6 @@ animation-play-state:running;
   position: absolute;
   border-radius: 50%;
   background-color: orange;
-
 }
 
 .controls {
@@ -190,7 +188,7 @@ animation-play-state:running;
   overflow-y: auto;
   /* overflow-x: hidden; */
   scrollbar-width: none;
-  padding: 30px 60px;
+  padding: 10px 60px;
   background: #000000c5;
   position: absolute;
   top: 0px;
@@ -214,9 +212,26 @@ animation-play-state:running;
 .modal li {
   box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.622);
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#btn {
+  width: 320px;
+  padding: 10px 15px;
+  position: relative;
+  background: #0d0e36d8;
+  left: -60px;
+  top: -10px;
+}
+
+.modal .royhatbtn {
+  position: sticky;
+  padding: 5px 50px;
+  top: 10px;
 }
 .modal .tugma {
-  position: sticky;
+  background: red;
   top: 10px;
   display: flex;
   justify-content: flex-end;
@@ -281,7 +296,6 @@ animation-play-state:running;
 }
 
 @media (max-width: 480px) {
-
   body {
     align-items: flex-start;
     justify-content: center;
@@ -290,12 +304,9 @@ animation-play-state:running;
   }
 
   .player {
-    /* width: 92vw;          ekran bo‘yicha */
-    max-width: 480px;     /* katta bo‘lib ketmasin */
-    /* height: auto; */
-    /* min-height: 560px; */
-    /* padding: 20px; */
-    /* border-radius: 22px; */
+
+    max-width: 480px; 
+   
   }
 
   .cover {
@@ -331,5 +342,4 @@ animation-play-state:running;
     border-radius: 22px 22px 0 0;
     padding: 20px;
   }
-
 }

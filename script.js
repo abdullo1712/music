@@ -12,6 +12,9 @@ const startTime = document.querySelector(".startTime");
 const allTime = document.querySelector(".allTime");
 const slider = document.querySelector(".slider");
 const nuqta = document.querySelector(".nuqta");
+const ism = document.querySelector(".ism");
+const music = document.querySelector(".music");
+const aftr = document.querySelector(".aftr");
 
 let data = [
   {
@@ -70,6 +73,8 @@ let musicIndex = 7;
 const writeMusic = (index) => {
   audio.src = `./music/${data[index].id}.mp3`;
   mainImg.src = `./img/${data[index].id}.jpg`;
+  aftr.textContent = `${data[index].name}`;
+  music.textContent = `${data[index].musicName}`;
 };
 writeMusic(musicIndex);
 
@@ -126,7 +131,6 @@ const nextMusic = () => {
     writeMusic(musicIndex);
   }
   playMusic();
-
 };
 
 const playMusic = () => {
@@ -174,11 +178,33 @@ slider.addEventListener("click", (e) => {
 
   let time = (audio.duration * offsetX) / clientWidth;
   audio.currentTime = time;
-  
 });
 
-
-audio.addEventListener("ended",()=>{
+audio.addEventListener("ended", () => {
   nextMusic();
+});
 
-})
+window.addEventListener("keydown", (e) => {
+  console.log(e.key);
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight") {
+    nextMusic();
+  } else if (e.key === "ArrowLeft") {
+    prevMusic();
+  } else if (e.key === "ArrowUp") {
+    audio.volume = Math.min(audio.volume + 1, 100);
+  } else if (e.key === "ArrowDown") {
+    audio.volume = Math.max(audio.volume - 1, 0);
+  } else if (e.code === "Space") {
+    e.preventDefault();
+    audio.paused ? playMusic() : puseMusic();
+  }
+});
+
+function prevMusic() {
+  musicIndex = musicIndex === 0 ? data.length - 1 : musicIndex - 1;
+  writeMusic(musicIndex);
+  playMusic();
+}
